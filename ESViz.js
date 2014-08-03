@@ -295,7 +295,7 @@ function drawNetwork(data) {
     KJFFpieSet3 = paper.set()
     KDFPpieSet = paper.set()
     KDFPpieSet2 = paper.set()
-    KDFPpieSet3 = paper.()
+    KDFPpieSet3 = paper.set()
     for(i=0; i < yearAxis+1; i++) {
     	newC = paper.circle(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5).attr({"fill":"#FFFFFF", "fill-opacity":0})
     	KJFFcircles.push(newC)
