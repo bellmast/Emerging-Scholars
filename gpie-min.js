@@ -96,9 +96,11 @@
             }
             
             //values are sorted numerically
-            values.sort(function (a, b) {
-                return b.value - a.value;
-            });
+            if (opts.sort !== false) {
+                values.sort(function (a, b) {
+                    return b.value - a.value;
+                });
+            }
             
             for (i = 0; i < len; i++) {
                 if (defcut && values[i] * 100 / total < minPercent) {
@@ -254,8 +256,13 @@
                 values[i].others && (labels[j] = otherslabel || "Others");
                 labels[j] = chartinst.labelise(labels[j], values[i], total);
                 chart.labels.push(paper.set());
-                chart.labels[i].push(paper[mark](x + 5, h, 5).attr({ fill: clr, stroke: "none" }));
-                chart.labels[i].push(txt = paper.text(x + 20, h, labels[j] || values[j]).attr(chartinst.txtattr).attr({ fill: opts.legendcolor || "#000", "text-anchor": "start"}));
+                if(clr != "#FFFFF") {
+                    chart.labels[i].push(paper[mark](x + 20, h, 5).attr({ fill: clr, stroke: "none" }));
+                } else if (clr == "#FFFFF") {
+                    chart.labels[i].push(paper[mark](x + 20, h, 5).attr({ fill: clr, stroke: "#000000" }));
+                }
+                
+                chart.labels[i].push(txt = paper.text(x + 35, h, labels[j] || values[j]).attr(chartinst.txtattr).attr({ fill: opts.legendcolor || "#000", "text-anchor": "start"}));
                 covers[i].label = chart.labels[i];
                 h += txt.getBBox().height * 1.2;
             }
