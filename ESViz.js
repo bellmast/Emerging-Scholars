@@ -595,7 +595,7 @@ function drawNetwork(data) {
 	    	
 	  	}
 		);
-    textSet.push(KDFPpieTex2)
+    textSet.push(KDFPpieText2)
     KDFPpieCheck3 = "no"
 	KDFPpieText3 = paper.text(50, KDFPheight+40, "Kauffman Data").hover(function() {
 			linesSet.hide()
