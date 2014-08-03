@@ -374,7 +374,7 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
     	if(i==10){
-    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPNBERyes[i], KDFPNBERno[i]], {colors: cArray, legend:["NBER Attendee", "Not"]})
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPNBERyes[i], KDFPNBERno[i]], {colors: cArray, legend:["Not", "NBER Attendee"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
     	}
@@ -389,7 +389,7 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
     	if(i==10){
-    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPKdatayes[i], KDFPKdatano[i]], {colors:cArray, legend:["Kauffman Data User", "Not"]})
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPKdatayes[i], KDFPKdatano[i]], {colors:cArray, legend:["Not", "Kauffman Data User"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
     	}
