@@ -256,9 +256,9 @@
                 values[i].others && (labels[j] = otherslabel || "Others");
                 labels[j] = chartinst.labelise(labels[j], values[i], total);
                 chart.labels.push(paper.set());
-                if(clr != "#FFFFF") {
+                if(clr != "#FFFFFF") {
                     chart.labels[i].push(paper[mark](x + 20, h, 5).attr({ fill: clr, stroke: "none" }));
-                } else if (clr == "#FFFFF") {
+                } else if (clr == "#FFFFFF") {
                     chart.labels[i].push(paper[mark](x + 20, h, 5).attr({ fill: clr, stroke: "#000000" }));
                 }
                 
