@@ -162,14 +162,14 @@ function drawNetwork(data) {
 	    		KJFFcarnegiex[marker] += 1
 	    	}
 	    	if(currentNBER == "") {
-	    		KJFFNBERno += 1
+	    		KJFFNBERno[marker] += 1
 	    	} else {
-	    		KJFFNBERyes += 1
+	    		KJFFNBERyes[marker] += 1
 	    	}
 	    	if(currentKdata == 0 || currentKdata == "") {
-	    		KJFFKdatano += 1
+	    		KJFFKdatano[marker] += 1
 	    	} else {
-	    		KJFFKdatayes += 1
+	    		KJFFKdatayes[marker] += 1
 	    	}
     	} else if(data[i][3] != '') {
     		currentYear = data[i][3]
@@ -188,14 +188,14 @@ function drawNetwork(data) {
 	    		KDFPcarnegiex[marker] += 1
 	    	}
 	    	if(currentNBER == "") {
-	    		KDFPNBERno += 1
+	    		KDFPNBERno[marker] += 1
 	    	} else {
-	    		KDFPNBERyes += 1
+	    		KDFPNBERyes[marker] += 1
 	    	}
 	    	if(currentKdata == 0 || currentKdata == "") {
-	    		KDFPKdatano += 1
+	    		KDFPKdatano[marker] += 1
 	    	} else {
-	    		KDFPKdatayes += 1
+	    		KDFPKdatayes[marker] += 1
 	    	}
     	}
     	
@@ -414,7 +414,7 @@ function drawNetwork(data) {
 	  	}
 		);
     textSet.push(KJFFtext)
-    KJFFtext2 = paper.text(50, KJFFheight+10, "(within)").hover(function() {
+    KJFFtext2 = paper.text(50, KJFFheight+15, "(within)").hover(function() {
 			linesSet.hide()
 			allpieSet.hide()
 			KDFPpieCheck = "no"
@@ -431,7 +431,7 @@ function drawNetwork(data) {
 		);
     textSet.push(KJFFtext2)
     KJFFpieCheck = "no"
-    KJFFpieText = paper.text(50, KJFFheight+20, "Carnegie").hover(function() {
+    KJFFpieText = paper.text(50, KJFFheight+30, "Carnegie").hover(function() {
 			linesSet.hide()
 			KJFFpieSet2.hide()
 			KJFFpieSet3.hide()
@@ -451,7 +451,7 @@ function drawNetwork(data) {
 		);
     textSet.push(KJFFpieText)
     KJFFpieCheck2 = "no"
-    KJFFpieText2 = paper.text(50, KJFFheight+30, "NBER").hover(function() {
+    KJFFpieText2 = paper.text(50, KJFFheight+45, "NBER").hover(function() {
 			linesSet.hide()
 			KJFFpieSet.hide()
 			KJFFpieSet3.hide()
@@ -471,7 +471,7 @@ function drawNetwork(data) {
 		);
     textSet.push(KJFFpieText2)
     KJFFpieCheck3 = "no"
-    KJFFpieText3 = paper.text(50, KJFFheight+40, "Kauffman Data").hover(function() {
+    KJFFpieText3 = paper.text(50, KJFFheight+60, "Kauffman Data").hover(function() {
 			linesSet.hide()
 			KJFFpieSet2.hide()
 			KJFFpieSet.hide()
@@ -506,7 +506,7 @@ function drawNetwork(data) {
 	  	}
 		);
 	textSet.push(KPrizetext)
-	KPrizetext2 = paper.text(50, KPrizeheight+10, "(within)").hover(function() {
+	KPrizetext2 = paper.text(50, KPrizeheight+15, "(within)").hover(function() {
 			linesSet.hide()
 			allpieSet.hide()
 			KDFPpieCheck = "no"
@@ -538,7 +538,7 @@ function drawNetwork(data) {
 	  	}
 		);
 	textSet.push(KDFPtext)
-	KDFPtext2 = paper.text(50, KDFPheight+10, "(within)").hover(function() {
+	KDFPtext2 = paper.text(50, KDFPheight+30, "(within)").hover(function() {
 			linesSet.hide()
 			allpieSet.hide()
 			KDFPlineSet2.show()
@@ -555,7 +555,7 @@ function drawNetwork(data) {
 		);
 	textSet.push(KDFPtext2)
 	KDFPpieCheck = "no"
-	KDFPpieText = paper.text(50, KDFPheight+20, "Carnegie").hover(function() {
+	KDFPpieText = paper.text(50, KDFPheight+45, "Carnegie").hover(function() {
 			linesSet.hide()
 			KDFPpieSet2.hide()
 			KDFPpieSet3.hide()
@@ -576,7 +576,7 @@ function drawNetwork(data) {
 		);
     textSet.push(KDFPpieText)
     KDFPpieCheck2 = "no"
-	KDFPpieText2 = paper.text(50, KDFPheight+30, "NBER").hover(function() {
+	KDFPpieText2 = paper.text(50, KDFPheight+60, "NBER").hover(function() {
 			linesSet.hide()
 			KDFPpieSet.hide()
 			KDFPpieSet3.hide()
