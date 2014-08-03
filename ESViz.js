@@ -25,7 +25,7 @@ function removal(arr, val) {
 }
 
 function runProgram() {
-    paper = new Raphael(document.getElementById('canvas_container'), canvasWidth, canvasHeight);  
+    paper = new Raphael(document.getElementById('canvas_container'), canvasWidth+60, canvasHeight);  
     jQuery.getJSON("ESData.js", function (data)
     {drawNetwork(data)});       
 }  
