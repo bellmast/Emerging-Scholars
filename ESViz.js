@@ -58,12 +58,20 @@ function drawNetwork(data) {
 	KJFFcarnegie1 = []
 	KJFFcarnegie2 = []
 	KJFFcarnegiex = []
+	KJFFNBERyes = []
+	KJFFNBERno = []
+	KJFFKdatayes = []
+	KJFFKdatano = []
 	KDFPcounts = []
 	KDFPcountsMobile = []
 	KDFPscaleTracker = []
 	KDFPcarnegie1 = []
 	KDFPcarnegie2 = []
 	KDFPcarnegiex = []
+	KDFPNBERyes = []
+	KDFPNBERno = []
+	KDFPKdatayes = []
+	KDFPKdatano = []
 
 	years = []
 
@@ -78,12 +86,20 @@ function drawNetwork(data) {
         KJFFcarnegie1.push(0)
         KJFFcarnegie2.push(0)
         KJFFcarnegiex.push(0)
+        KJFFNBERno.push(0)
+        KJFFNBERyes.push(0)
+        KJFFKdatano.push(0)
+        KJFFKdatayes.push(0)
         KDFPcounts.push(0)
         KDFPcountsMobile.push(0)
         KDFPscaleTracker.push(0)
         KDFPcarnegie1.push(0)
         KDFPcarnegie2.push(0)
         KDFPcarnegiex.push(0)
+        KDFPNBERyes.push(0)
+        KDFPNBERno.push(0)
+        KDFPKdatayes.push(0)
+        KDFPKdatano.push(0)
         KJFFlines.push(paper.set())
     }
 
@@ -120,6 +136,8 @@ function drawNetwork(data) {
     	
     	currentName = data[i][0]
     	currentCarnegie = data[i][5]
+    	currentNBER = data[i][6]
+    	currentKdata = data[i][7]
     	scale = parseFloat(data[i][4])
 
     	if(data[i][1] != '') {
@@ -143,6 +161,16 @@ function drawNetwork(data) {
 	    	} else {
 	    		KJFFcarnegiex[marker] += 1
 	    	}
+	    	if(currentNBER == "") {
+	    		KJFFNBERno += 1
+	    	} else {
+	    		KJFFNBERyes += 1
+	    	}
+	    	if(currentKdata == 0 || currentKdata == "") {
+	    		KJFFKdatano += 1
+	    	} else {
+	    		KJFFKdatayes += 1
+	    	}
     	} else if(data[i][3] != '') {
     		currentYear = data[i][3]
     		currentProgram = "KDFP"
@@ -158,6 +186,16 @@ function drawNetwork(data) {
 	    		KDFPcarnegie2[marker] += 1
 	    	} else {
 	    		KDFPcarnegiex[marker] += 1
+	    	}
+	    	if(currentNBER == "") {
+	    		KDFPNBERno += 1
+	    	} else {
+	    		KDFPNBERyes += 1
+	    	}
+	    	if(currentKdata == 0 || currentKdata == "") {
+	    		KDFPKdatano += 1
+	    	} else {
+	    		KDFPKdatayes += 1
 	    	}
     	}
     	
@@ -189,7 +227,7 @@ function drawNetwork(data) {
 
     	
 
-    	for(u=6; u < dataRowLength; u++) {
+    	for(u=8; u < dataRowLength; u++) {
     		cName = data[i][u]
     		if (cName == '') {
     			break
@@ -253,7 +291,11 @@ function drawNetwork(data) {
     }
     KJFFcircles = []
     KJFFpieSet = paper.set()
+    KJFFpieSet2 = paper.set()
+    KJFFpieSet3 = paper.set()
     KDFPpieSet = paper.set()
+    KDFPpieSet2 = paper.set()
+    KDFPpieSet3 = paper.()
     for(i=0; i < yearAxis+1; i++) {
     	newC = paper.circle(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5).attr({"fill":"#FFFFFF", "fill-opacity":0})
     	KJFFcircles.push(newC)
@@ -270,8 +312,37 @@ function drawNetwork(data) {
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
     	}
+		KJFFpieSet.push(pie)
+
+    	vArray = [KJFFNBERyes[i], KJFFNBERno[i]]
+    	cArray = ["#605C7F", "#FFFFFF"]
+    	removal(vArray, 0)
+    	newLen = indices.length
+    	for(u=0;u<newLen;u++){
+    		cArray.splice(indices[u],1)
+    	}
+    	if(i==11){
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFNBERyes[i], KJFFNBERno[i]], {legend:["NBER Attendee", "Not"]})
+    	} else {
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
+    	}
     	
-    	KJFFpieSet.push(pie)
+    	KJFFpieSet2.push(pie)
+
+		vArray = [KJFFKdatayes[i], KJFFKdatano[i]]
+    	cArray = ["#879BB6", "#FFFFFF"]
+    	removal(vArray, 0)
+    	newLen = indices.length
+    	for(u=0;u<newLen;u++){
+    		cArray.splice(indices[u],1)
+    	}
+    	if(i==11){
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFKdatayes[i], KJFFKdatano[i]], {legend:["Kauffman Data User", "Not"]})
+    	} else {
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
+    	}
+    	
+    	KJFFpieSet3.push(pie)
     	// q=0
     	// for(u=years[i]; u < latestYear+1; u++) {
     	// 	cWidth = eCircleConnects[years[i]+"KJFF"+u+"KJFF"]
@@ -294,13 +365,48 @@ function drawNetwork(data) {
     	}
     	
     	KDFPpieSet.push(pie2)
+
+    	vArray = [KDFPNBERyes[i], KDFPNBERno[i]]
+    	cArray = ["#605C7F", "#FFFFFF"]
+    	removal(vArray, 0)
+    	newLen = indices.length
+    	for(u=0;u<newLen;u++){
+    		cArray.splice(indices[u],1)
+    	}
+    	if(i==11){
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPNBERyes[i], KDFPNBERno[i]], {legend:["NBER Attendee", "Not"]})
+    	} else {
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
+    	}
+    	
+    	KDFPpieSet2.push(pie)
+
+		vArray = [KDFPKdatayes[i], KDFPKdatano[i]]
+    	cArray = ["#879BB6", "#FFFFFF"]
+    	removal(vArray, 0)
+    	newLen = indices.length
+    	for(u=0;u<newLen;u++){
+    		cArray.splice(indices[u],1)
+    	}
+    	if(i==11){
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPKdatayes[i], KDFPKdatano[i]], {legend:["Kauffman Data User", "Not"]})
+    	} else {
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
+    	}
+    	
+    	KDFPpieSet3.push(pie)
+
     }
+    allpieSet = paper.set(KDFPpieSet3, KDFPpieSet2, KDFPpieSet, KJFFpieSet3, KJFFpieSet2, KJFFpieSet)
     KJFFtext = paper.text(50, KJFFheight, "KJFF").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 			KJFFlineSet.show()
 		},
 		function () {
@@ -310,10 +416,13 @@ function drawNetwork(data) {
     textSet.push(KJFFtext)
     KJFFtext2 = paper.text(50, KJFFheight+10, "(within)").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 			KJFFlineSet2.show()
 		},
 		function () {
@@ -324,6 +433,10 @@ function drawNetwork(data) {
     KJFFpieCheck = "no"
     KJFFpieText = paper.text(50, KJFFheight+20, "Carnegie").hover(function() {
 			linesSet.hide()
+			KJFFpieSet2.hide()
+			KJFFpieSet3.hide()
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 			if(KJFFpieCheck == "yes") {
 				KJFFpieSet.hide()
 				KJFFpieCheck = "no"
@@ -337,12 +450,55 @@ function drawNetwork(data) {
 	  	}
 		);
     textSet.push(KJFFpieText)
+    KJFFpieCheck2 = "no"
+    KJFFpieText2 = paper.text(50, KJFFheight+30, "NBER").hover(function() {
+			linesSet.hide()
+			KJFFpieSet.hide()
+			KJFFpieSet3.hide()
+			KJFFpieCheck = "no"
+			KJFFpieCheck3 = "no"
+			if(KJFFpieCheck2 == "yes") {
+				KJFFpieSet2.hide()
+				KJFFpieCheck2 = "no"
+			} else if (KJFFpieCheck2 == "no") {
+				KJFFpieSet2.show()
+				KJFFpieCheck2 = "yes"
+			}
+		},
+		function () {
+
+	  	}
+		);
+    textSet.push(KJFFpieText2)
+    KJFFpieCheck3 = "no"
+    KJFFpieText3 = paper.text(50, KJFFheight+40, "Kauffman Data").hover(function() {
+			linesSet.hide()
+			KJFFpieSet2.hide()
+			KJFFpieSet.hide()
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck = "no"
+			if(KJFFpieCheck3 == "yes") {
+				KJFFpieSet3.hide()
+				KJFFpieCheck3 = "no"
+			} else if (KJFFpieCheck3 == "no") {
+				KJFFpieSet3.show()
+				KJFFpieCheck3 = "yes"
+			}
+		},
+		function () {
+
+	  	}
+		);
+    textSet.push(KJFFpieText3)
 	KPrizetext = paper.text(50, KPrizeheight, "KPrize").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 			KPrizelineSet.show()
 		},
 		function () {
@@ -352,10 +508,13 @@ function drawNetwork(data) {
 	textSet.push(KPrizetext)
 	KPrizetext2 = paper.text(50, KPrizeheight+10, "(within)").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 			KPrizelineSet2.show()
 		},
 		function () {
@@ -365,11 +524,14 @@ function drawNetwork(data) {
 	textSet.push(KPrizetext2)
 	KDFPtext = paper.text(50, KDFPheight, "KDFP").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPlineSet.show()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 		},
 		function () {
 	    	
@@ -378,11 +540,14 @@ function drawNetwork(data) {
 	textSet.push(KDFPtext)
 	KDFPtext2 = paper.text(50, KDFPheight+10, "(within)").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPlineSet2.show()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 		},
 		function () {
 	    	
@@ -392,6 +557,10 @@ function drawNetwork(data) {
 	KDFPpieCheck = "no"
 	KDFPpieText = paper.text(50, KDFPheight+20, "Carnegie").hover(function() {
 			linesSet.hide()
+			KDFPpieSet2.hide()
+			KDFPpieSet3.hide()
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			if(KDFPpieCheck == "yes") {
 				KDFPpieSet.hide()
 				KDFPpieCheck = "no"
@@ -406,26 +575,73 @@ function drawNetwork(data) {
 	  	}
 		);
     textSet.push(KDFPpieText)
+    KDFPpieCheck2 = "no"
+	KDFPpieText2 = paper.text(50, KDFPheight+30, "NBER").hover(function() {
+			linesSet.hide()
+			KDFPpieSet.hide()
+			KDFPpieSet3.hide()
+			KDFPpieCheck = "no"
+			KDFPpieCheck3 = "no"
+			if(KDFPpieCheck2 == "yes") {
+				KDFPpieSet2.hide()
+				KDFPpieCheck2 = "no"
+			} else if (KDFPpieCheck2 == "no") {
+				KDFPpieSet2.show()
+				KDFPpieCheck2 = "yes"
+			}
+			
+		},
+		function () {
+	    	
+	  	}
+		);
+    textSet.push(KDFPpieTex2)
+    KDFPpieCheck3 = "no"
+	KDFPpieText3 = paper.text(50, KDFPheight+40, "Kauffman Data").hover(function() {
+			linesSet.hide()
+			KDFPpieSet2.hide()
+			KDFPpieSet.hide()
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck = "no"
+			if(KDFPpieCheck3 == "yes") {
+				KDFPpieSet3.hide()
+				KDFPpieCheck3 = "no"
+			} else if (KDFPpieCheck == "no") {
+				KDFPpieSet3.show()
+				KDFPpieCheck3 = "yes"
+			}
+			
+		},
+		function () {
+	    	
+	  	}
+		);
+    textSet.push(KDFPpieText3)
 	showAllText = paper.text(50, 50, "show all").hover(function() {
 			linesSet.show()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 		}
 		);
 	hideAllText = paper.text(50, 60, "hide all").hover(function() {
 			linesSet.hide()
-			KDFPpieSet.hide()
-			KJFFpieSet.hide()
+			allpieSet.hide()
 			KDFPpieCheck = "no"
+			KDFPpieCheck2 = "no"
+			KDFPpieCheck3 = "no"
 			KJFFpieCheck = "no"
+			KJFFpieCheck2 = "no"
+			KJFFpieCheck3 = "no"
 		}
 		);
 	textSet.push(showAllText, hideAllText)
 	linesSet.hide()
-	KDFPpieSet.hide()
-	KJFFpieSet.hide()
+	allpieSet.hide()
   
 }
 
