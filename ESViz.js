@@ -321,7 +321,7 @@ function drawNetwork(data) {
     	for(u=0;u<newLen;u++){
     		cArray.splice(indices[u],1)
     	}
-    	if(i==11){
+    	if(i==10){
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFNBERyes[i], KJFFNBERno[i]], {colors: cArray, legend:["NBER Attendee", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
@@ -336,7 +336,7 @@ function drawNetwork(data) {
     	for(u=0;u<newLen;u++){
     		cArray.splice(indices[u],1)
     	}
-    	if(i==11){
+    	if(i==10){
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFKdatayes[i], KJFFKdatano[i]], {colors: cArray, legend:["Kauffman Data User", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
@@ -506,7 +506,7 @@ function drawNetwork(data) {
 	  	}
 		);
 	textSet.push(KPrizetext)
-	KPrizetext2 = paper.text(50, KPrizeheight, "(within)").hover(function() {
+	KPrizetext2 = paper.text(50, KPrizeheight+15, "(within)").hover(function() {
 			linesSet.hide()
 			allpieSet.hide()
 			KDFPpieCheck = "no"
@@ -628,7 +628,7 @@ function drawNetwork(data) {
 			KJFFpieCheck3 = "no"
 		}
 		);
-	hideAllText = paper.text(50, 60, "hide all").hover(function() {
+	hideAllText = paper.text(50, 65, "hide all").hover(function() {
 			linesSet.hide()
 			allpieSet.hide()
 			KDFPpieCheck = "no"
