@@ -308,9 +308,9 @@ function drawNetwork(data) {
     	}
     	
     	if(i==11){
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFcarnegie1[i], KJFFcarnegie2[i], KJFFcarnegiex[i]], {legend:["Research I", "Research II", "Other"]})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFcarnegie1[i], KJFFcarnegie2[i], KJFFcarnegiex[i]], {sort:false, legend:["Research I", "Research II", "Other"]})
     	} else {
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray, sort:false})
     	}
 		KJFFpieSet.push(pie)
 
@@ -322,9 +322,9 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
     	if(i==11){
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFNBERyes[i], KJFFNBERno[i]], {colors: cArray, legend:["NBER Attendee", "Not"]})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFNBERyes[i], KJFFNBERno[i]], {colors: cArray, sort:false, legend:["NBER Attendee", "Not"]})
     	} else {
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray, sort:false})
     	}
     	
     	KJFFpieSet2.push(pie)
@@ -337,9 +337,9 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
     	if(i==11){
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFKdatayes[i], KJFFKdatano[i]], {colors: cArray, legend:["Kauffman Data User", "Not"]})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFKdatayes[i], KJFFKdatano[i]], {colors: cArray, sort:false, legend:["Kauffman Data User", "Not"]})
     	} else {
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray, sort: false})
     	}
     	
     	KJFFpieSet3.push(pie)
@@ -359,9 +359,9 @@ function drawNetwork(data) {
     	}
 
     	if(i==10){
-    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i], KDFPcarnegiex[i]], {legend:["Research I", "Research II", "Other"]})
+    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i], KDFPcarnegiex[i]], {sort:false, legend:["Research I", "Research II", "Other"]})
     	} else {
-    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray2, {colors: cArray})
+    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray2, {colors: cArray, sort: false})
     	}
     	
     	KDFPpieSet.push(pie2)
@@ -374,9 +374,9 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
     	if(i==10){
-    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPNBERyes[i], KDFPNBERno[i]], {colors: cArray, legend:["Not", "NBER Attendee"]})
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPNBERyes[i], KDFPNBERno[i]], {colors: cArray, sort: false, legend:["NBER Attendee", "Not"]})
     	} else {
-    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray, sort: false})
     	}
     	
     	KDFPpieSet2.push(pie)
@@ -389,9 +389,9 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
     	if(i==10){
-    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPKdatayes[i], KDFPKdatano[i]], {colors:cArray, legend:["Not", "Kauffman Data User"]})
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPKdatayes[i], KDFPKdatano[i]], {colors:cArray, sort:false, legend:["Kauffman Data User", "Not"]})
     	} else {
-    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
+    		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray, sort: false})
     	}
     	
     	KDFPpieSet3.push(pie)
