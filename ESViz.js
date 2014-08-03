@@ -321,7 +321,7 @@ function drawNetwork(data) {
     	for(u=0;u<newLen;u++){
     		cArray.splice(indices[u],1)
     	}
-    	if(i==10){
+    	if(i==11){
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFNBERyes[i], KJFFNBERno[i]], {colors: cArray, legend:["NBER Attendee", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
@@ -336,7 +336,7 @@ function drawNetwork(data) {
     	for(u=0;u<newLen;u++){
     		cArray.splice(indices[u],1)
     	}
-    	if(i==10){
+    	if(i==11){
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFKdatayes[i], KJFFKdatano[i]], {colors: cArray, legend:["Kauffman Data User", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray})
@@ -358,7 +358,7 @@ function drawNetwork(data) {
     		cArray.splice(indices[u],1)
     	}
 
-    	if(i==11){
+    	if(i==10){
     		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i], KDFPcarnegiex[i]], {legend:["Research I", "Research II", "Other"]})
     	} else {
     		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray2, {colors: cArray})
@@ -373,7 +373,7 @@ function drawNetwork(data) {
     	for(u=0;u<newLen;u++){
     		cArray.splice(indices[u],1)
     	}
-    	if(i==11){
+    	if(i==10){
     		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPNBERyes[i], KDFPNBERno[i]], {colors: cArray, legend:["NBER Attendee", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
@@ -388,7 +388,7 @@ function drawNetwork(data) {
     	for(u=0;u<newLen;u++){
     		cArray.splice(indices[u],1)
     	}
-    	if(i==11){
+    	if(i==10){
     		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPKdatayes[i], KDFPKdatano[i]], {colors:cArray, legend:["Kauffman Data User", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray, {colors: cArray})
