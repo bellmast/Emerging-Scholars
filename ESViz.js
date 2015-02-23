@@ -308,7 +308,7 @@ function drawNetwork(data) {
     	}
     	
     	if(i==11){
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFcarnegie1[i], KJFFcarnegie2[i]+KJFFcarnegiex[i]], {sort:false, legend:["Research I", "Not"]})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFcarnegie1[i], KJFFcarnegie2[i]+KJFFcarnegiex[i]], {colors: cArray, sort:false, legend:["Research I", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray, sort:false})
     	}
@@ -359,7 +359,7 @@ function drawNetwork(data) {
     	}
 
     	if(i==10){
-    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i]+KDFPcarnegiex[i]], {sort:false, legend:["Research I", "Not"]})
+    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i]+KDFPcarnegiex[i]], {colors: cArray, sort:false, legend:["Research I", "Not"]})
     	} else {
     		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray2, {colors: cArray, sort: false})
     	}
