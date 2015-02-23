@@ -299,8 +299,8 @@ function drawNetwork(data) {
     for(i=0; i < yearAxis+1; i++) {
     	newC = paper.circle(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5).attr({"fill":"#FFFFFF", "fill-opacity":0})
     	KJFFcircles.push(newC)
-    	vArray = [KJFFcarnegie1[i], KJFFcarnegie2[i], KJFFcarnegiex[i]]
-    	cArray = ["#2F69BF", "#A2BF2F", "#BF5A2F"]
+    	vArray = [KJFFcarnegie1[i], KJFFcarnegie2[i]+KJFFcarnegiex[i]]
+    	cArray = ["#879BB6", "#FFFFFF"]
     	removal(vArray, 0)
     	newLen = indices.length
     	for(u=0;u<newLen;u++){
@@ -308,14 +308,14 @@ function drawNetwork(data) {
     	}
     	
     	if(i==11){
-    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFcarnegie1[i], KJFFcarnegie2[i], KJFFcarnegiex[i]], {sort:false, legend:["Research I", "Research II", "Other"]})
+    		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, [KJFFcarnegie1[i], KJFFcarnegie2[i]+KJFFcarnegiex[i]], {sort:false, legend:["Research I", "Not"]})
     	} else {
     		pie = paper.piechart(yearXcoords[i], KJFFheight, KJFFscaleTracker[i]*1.5, vArray, {colors: cArray, sort:false})
     	}
 		KJFFpieSet.push(pie)
 
     	vArray = [KJFFNBERyes[i], KJFFNBERno[i]]
-    	cArray = ["#605C7F", "#FFFFFF"]
+    	cArray = ["#879BB6", "#FFFFFF"]
     	removal(vArray, 0)
     	newLen = indices.length
     	for(u=0;u<newLen;u++){
@@ -350,8 +350,8 @@ function drawNetwork(data) {
     	// }
     	paper.circle(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5)
 
-    	vArray2 = [KDFPcarnegie1[i], KDFPcarnegie2[i], KDFPcarnegiex[i]]
-    	cArray = ["#2F69BF", "#A2BF2F", "#BF5A2F"]
+    	vArray2 = [KDFPcarnegie1[i], KDFPcarnegie2[i]+KDFPcarnegiex[i]]
+    	cArray = ["#879BB6", "#FFFFFF"]
     	removal(vArray2, 0)
     	newLen = indices.length
     	for(u=0;u<newLen;u++){
@@ -359,7 +359,7 @@ function drawNetwork(data) {
     	}
 
     	if(i==10){
-    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i], KDFPcarnegiex[i]], {sort:false, legend:["Research I", "Research II", "Other"]})
+    		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, [KDFPcarnegie1[i], KDFPcarnegie2[i]+KDFPcarnegiex[i]], {sort:false, legend:["Research I", "Not"]})
     	} else {
     		pie2 = paper.piechart(yearXcoords[i], KDFPheight, KDFPscaleTracker[i]*1.5, vArray2, {colors: cArray, sort: false})
     	}
