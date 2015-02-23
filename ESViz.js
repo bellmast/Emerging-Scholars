@@ -367,7 +367,7 @@ function drawNetwork(data) {
     	KDFPpieSet.push(pie2)
 
     	vArray = [KDFPNBERyes[i], KDFPNBERno[i]]
-    	cArray = ["#605C7F", "#FFFFFF"]
+    	cArray = ["#879BB6", "#FFFFFF"]
     	removal(vArray, 0)
     	newLen = indices.length
     	for(u=0;u<newLen;u++){
